@@ -70,7 +70,7 @@ public class MyLoggingAdvisor implements BaseAdvisor {
 		if (lastMessage.getMessageType() == MessageType.TOOL) {
 			ToolResponseMessage toolResponseMessage = (ToolResponseMessage) lastMessage;
 			for (var toolResponse : toolResponseMessage.getResponses()) {
-				var tr = toolResponse.name() + ": " + first(toolResponse.responseData(), 300);
+				var tr = toolResponse.name() + ": " + first(toolResponse.responseData(), /*300*/ Integer.MAX_VALUE);
 				sb.append("\n - TOOL-RESPONSE: " + tr);
 			}
 		}
